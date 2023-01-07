@@ -20,6 +20,7 @@ db.on("error", (err) => console.log(err));
 //scrap endpoint
 app.post('/scrap', async (req, res) => {
     try {
+        console.log("req.body",req.body)
         let productDetails = await scrap(req.body.scrapUrl)
         console.log("product",productDetails)
         let product=await new Product(productDetails).save()
