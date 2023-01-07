@@ -24,7 +24,7 @@ let scrap = async (url) => {
         },
         price: ".priceToPay .a-offscreen",
         about: {
-            listItem: "#feature-bullets > ul > li"
+            selector: "#feature-bullets > ul > li"
         },
         table: {
             selector: ".a-section table",
@@ -62,6 +62,7 @@ let scrap = async (url) => {
     product.image=data?.image;
     product.title=data?.title
     product.price=data?.price
+    product.about=data?.about
     return product
 }
 

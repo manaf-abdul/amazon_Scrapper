@@ -17,10 +17,11 @@ db.on("disconnected", () => console.log("Disonnected to MongoDB"));
 db.on("reconnected", () => console.log("Reconnected to MongoDB"));
 db.on("error", (err) => console.log(err));
 
-//
+//scrap endpoint
 app.post('/scrap', async (req, res) => {
     try {
         let productDetails = await scrap(req.body.scrapUrl)
+        console.log("product",productDetails)
         let product=await new Product(productDetails).save()
         res.status(200).send(product)
     } catch (error) {
@@ -30,4 +31,5 @@ app.post('/scrap', async (req, res) => {
 
 });
 
+//app starts
 app.listen(PORT || 3000, () => console.log("Server started"))
