@@ -32,7 +32,7 @@ let scrap = async (url) => {
         },
     });
 
-    console.log("data",data)
+    console.log("data",data.technicalDetailTable)
 
     for (const d of data.technicalDetailTable.split('</tr>')) {
         let tr = cleanData(d);
