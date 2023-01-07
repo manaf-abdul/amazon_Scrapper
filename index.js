@@ -18,7 +18,7 @@ db.on("reconnected", () => console.log("Reconnected to MongoDB"));
 db.on("error", (err) => console.log(err));
 
 //scrap endpoint
-app.post('/scrap', async (req, res) => {
+app.post('/api/scrap', async (req, res) => {
     try {
         console.log("req.body",req.body)
         let productDetails = await scrap(req.body.scrapUrl)
@@ -33,4 +33,4 @@ app.post('/scrap', async (req, res) => {
 });
 
 //app starts
-app.listen(PORT || 3000, () => console.log("Server started"))
+app.listen(PORT || 3000, () => console.log(`Server started in ${PORT}`))
